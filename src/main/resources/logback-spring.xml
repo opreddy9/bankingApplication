@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <!-- Define the file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/banking-app.log</file> <!-- Path to the log file -->
+        <!-- <append>true</append> Append to the file instead of overwriting -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- this is for loggin into console
+    first we create the appenders and then we create for each log type in which appender we have to log 
+    for each log type we have to do that
+    -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <!-- <appender-ref ref="FILE" /> Log to file -->
+        <appender-ref ref="CONSOLE" /> 
+    </root>
+
+    <!-- Optional: Specific logger for your package -->
+    <logger name="com.copart.bankingApplication.aop" level="INFO" additivity="false">
+        <appender-ref ref="FILE" />
+        <!-- if we want the logging into console we can enable this too-->
+        <!-- <appender-ref ref="CONSOLE" />  -->
+    </logger>
+
+</configuration>

@@ -16,7 +16,7 @@ public class LoggingAspect {
 
     @Around("execution(* com.copart.bankingApplication.*.*.*(..))")
     public Object logMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println("========>>>>> i am inside the AOP Around which i wrote for purpose of logging");
+        // System.out.println("========>>>>> i am inside the AOP Around which i wrote for purpose of logging checking if loggin is happening");
         String methodName = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
 
@@ -25,7 +25,7 @@ public class LoggingAspect {
         Object result = joinPoint.proceed();
 
         logger.info("Response from {}: {}", methodName, result);
-        System.out.println("=======>>>>> this the end of the AOP for logging");
+        // System.out.println("=======>>>>> this the end of the AOP for logging");
 
         return result;
     }

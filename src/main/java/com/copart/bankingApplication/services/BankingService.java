@@ -2,7 +2,6 @@ package com.copart.bankingApplication.services;
 
 import com.copart.bankingApplication.dto.*;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 public interface BankingService {

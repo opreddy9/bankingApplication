@@ -1,0 +1,12 @@
+2025-04-02 14:29:29 [http-nio-8080-exec-3] INFO  c.c.b.aop.LoggingAspect - Incoming request to getBalanceInTheAccount with arguments: [c3a43942-ca92-4428-a8bd-0dccf2813b3e]
+2025-04-02 14:29:29 [http-nio-8080-exec-3] INFO  c.c.b.aop.LoggingAspect - Incoming request to checkBalance with arguments: [c3a43942-ca92-4428-a8bd-0dccf2813b3e]
+2025-04-02 14:29:29 [http-nio-8080-exec-3] INFO  c.c.b.aop.LoggingAspect - Incoming request to findByAccountUuid with arguments: [c3a43942-ca92-4428-a8bd-0dccf2813b3e]
+2025-04-02 14:29:29 [http-nio-8080-exec-3] INFO  c.c.b.aop.LoggingAspect - Response from findByAccountUuid: Account(id=1, customer=Customer(id=1, customerName=John Doe, aadharNumber=234567890123, addressLine1=123 Main St, addressLine2=Apt 4B, city=Mumbai, state=Maharashtra, country=India, phoneNumber=919876543210), accountUuid=c3a43942-ca92-4428-a8bd-0dccf2813b3e, balance=69.00, status=ACTIVE)
+2025-04-02 14:29:29 [http-nio-8080-exec-3] INFO  c.c.b.aop.LoggingAspect - Response from checkBalance: BalanceResponseDTO(amount=69.00)
+2025-04-02 14:29:29 [http-nio-8080-exec-3] INFO  c.c.b.aop.LoggingAspect - Response from getBalanceInTheAccount: <200 OK OK,BalanceResponseDTO(amount=69.00),[]>
+2025-04-02 14:29:56 [http-nio-8080-exec-2] INFO  c.c.b.aop.LoggingAspect - Incoming request to getAccountDetails with arguments: [c3a43942-ca92-4428-a8bd-0dccf2813b3e]
+2025-04-02 14:29:56 [http-nio-8080-exec-2] INFO  c.c.b.aop.LoggingAspect - Incoming request to getAccountDetails with arguments: [c3a43942-ca92-4428-a8bd-0dccf2813b3e]
+2025-04-02 14:29:56 [http-nio-8080-exec-2] INFO  c.c.b.aop.LoggingAspect - Incoming request to findByAccountUuid with arguments: [c3a43942-ca92-4428-a8bd-0dccf2813b3e]
+2025-04-02 14:29:56 [http-nio-8080-exec-2] INFO  c.c.b.aop.LoggingAspect - Response from findByAccountUuid: Account(id=1, customer=Customer(id=1, customerName=John Doe, aadharNumber=234567890123, addressLine1=123 Main St, addressLine2=Apt 4B, city=Mumbai, state=Maharashtra, country=India, phoneNumber=919876543210), accountUuid=c3a43942-ca92-4428-a8bd-0dccf2813b3e, balance=69.00, status=ACTIVE)
+2025-04-02 14:29:56 [http-nio-8080-exec-2] INFO  c.c.b.aop.LoggingAspect - Response from getAccountDetails: AccountResponseDTO(id=1, accountUuid=c3a43942-ca92-4428-a8bd-0dccf2813b3e, customerId=1, balance=69.00, status=ACTIVE)
+2025-04-02 14:29:56 [http-nio-8080-exec-2] INFO  c.c.b.aop.LoggingAspect - Response from getAccountDetails: <200 OK OK,AccountResponseDTO(id=1, accountUuid=c3a43942-ca92-4428-a8bd-0dccf2813b3e, customerId=1, balance=69.00, status=ACTIVE),[]>

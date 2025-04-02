@@ -6,8 +6,8 @@ import com.copart.bankingApplication.entity.Customer;
 import com.copart.bankingApplication.exceptions.*;
 import com.copart.bankingApplication.repository.AccountRepository;
 import com.copart.bankingApplication.repository.CustomerRepository;
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 public class BankingServiceImpl implements BankingService {
-    // private static final Logger logger = LoggerFactory.getLogger(BankingServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(BankingServiceImpl.class);
 
     @Autowired
     private CustomerRepository customerRepository;
