@@ -2,6 +2,7 @@ package com.copart.bankingApplication.services;
 
 import com.copart.bankingApplication.dto.*;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public interface BankingService {
@@ -12,4 +13,5 @@ public interface BankingService {
     AccountResponseDTO withdraw(UUID accountUuid, TransactionRequestDTO transactionDTO);
     void inactivateAccount(UUID accountUuid);
     void activateAccount(UUID accountUuid);
+    BalanceResponseDTO checkBalance(UUID accountUuid);
 }

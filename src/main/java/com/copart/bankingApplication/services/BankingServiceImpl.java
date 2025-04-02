@@ -6,8 +6,8 @@ import com.copart.bankingApplication.entity.Customer;
 import com.copart.bankingApplication.exceptions.*;
 import com.copart.bankingApplication.repository.AccountRepository;
 import com.copart.bankingApplication.repository.CustomerRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 public class BankingServiceImpl implements BankingService {
-    private static final Logger logger = LoggerFactory.getLogger(BankingServiceImpl.class);
+    // private static final Logger logger = LoggerFactory.getLogger(BankingServiceImpl.class);
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -129,6 +129,16 @@ public class BankingServiceImpl implements BankingService {
         accountRepository.save(account);
     }
 
+    @Override
+    public BalanceResponseDTO checkBalance(UUID accounUuid){
+        Account account=accountRepository.findByAccountUuid(accounUuid);
+        if(account == null){
+            throw new AccountNotFoundException("Account not found with UUID: "+accounUuid);
+        }
+        BigDecimal amount=account.getBalance();
+        return mapToBalanceResponseDTO(amount);
+    }
+
     private CustomerResponseDTO mapToCustomerResponseDTO(Customer customer) {
         CustomerResponseDTO dto = new CustomerResponseDTO();
         dto.setId(customer.getId());
@@ -150,6 +160,12 @@ public class BankingServiceImpl implements BankingService {
         dto.setCustomerId(account.getCustomer().getId());
         dto.setBalance(account.getBalance());
         dto.setStatus(account.getStatus().name());
+        return dto;
+    }
+
+    private BalanceResponseDTO mapToBalanceResponseDTO(BigDecimal amount){
+        BalanceResponseDTO dto=new BalanceResponseDTO();
+        dto.setAmount(amount);
         return dto;
     }
 }

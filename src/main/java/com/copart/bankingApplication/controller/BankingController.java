@@ -59,4 +59,10 @@ public class BankingController {
         bankingService.activateAccount(accountUuid);
         return ResponseEntity.ok("Account activated successfully");
     }
+
+    @GetMapping("/accounts/getBalance/{accountUuid}")
+    public ResponseEntity<BalanceResponseDTO> getBalanceInTheAccount(@Valid @PathVariable UUID accountUuid){
+        BalanceResponseDTO response=bankingService.checkBalance(accountUuid);
+        return ResponseEntity.ok(response);
+    }
 }
