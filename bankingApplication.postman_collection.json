@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "1bde99b4-b9a7-4144-bd48-9e73022492c7",
+		"name": "bankingApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31678166"
+	},
+	"item": [
+		{
+			"name": "getAccountDetails",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "createCustomer",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerName\": \"John Doe\",\r\n    \"aadharNumber\": \"234567890123\",\r\n    \"addressLine1\": \"123 Main St\",\r\n    \"addressLine2\": \"Apt 4B\",\r\n    \"city\": \"Mumbai\",\r\n    \"state\": \"Maharashtra\",\r\n    \"country\": \"India\",\r\n    \"phoneNumber\": \"919876543210\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/banking/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAccountForCustomer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerId\":1,\r\n    \"initialBalance\":120.69\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/banking/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "depositMoney",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\":69\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/banking/accounts/c3a43942-ca92-4428-a8bd-0dccf2813b3e/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"accounts",
+						"c3a43942-ca92-4428-a8bd-0dccf2813b3e",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "withdrawMoney",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\":121\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/banking/accounts/c3a43942-ca92-4428-a8bd-0dccf2813b3e/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"accounts",
+						"c3a43942-ca92-4428-a8bd-0dccf2813b3e",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InactivateAccount",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/banking/accounts/c3a43942-ca92-4428-a8bd-0dccf2813b3e/inactivate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"accounts",
+						"c3a43942-ca92-4428-a8bd-0dccf2813b3e",
+						"inactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AcctivateAccount",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/banking/accounts/c3a43942-ca92-4428-a8bd-0dccf2813b3e/activate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"accounts",
+						"c3a43942-ca92-4428-a8bd-0dccf2813b3e",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBalance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/banking/accounts/getBalance/c3a43942-ca92-4428-a8bd-0dccf2813b3e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"banking",
+						"accounts",
+						"getBalance",
+						"c3a43942-ca92-4428-a8bd-0dccf2813b3e"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

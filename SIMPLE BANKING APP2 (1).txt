@@ -1,0 +1,21 @@
+SIMPLE BANKING APP
+
+1-create a account
+2-fetching account details
+3- making a deposit/withdrawal
+4-Inactivate an account(access by status ACTIVE/INACTIVE)
+
+1) Create SpringBoot Project with maven AND commit the changes in to your own git repo
+2) JPA with Hibernate with proper relational mapping
+3) Use Controller Advice
+4) Customized Exceptions with proper error Messages
+5) Bean Validations
+	while creating customer 
+		customername
+		Aadhaar Number
+		Address 
+		  Line1
+		Phone
+6) Write junits using mockito
+7) Create AOP to print incoming request and outgoing response
+ 
