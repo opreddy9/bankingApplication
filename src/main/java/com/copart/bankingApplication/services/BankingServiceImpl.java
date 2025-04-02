@@ -38,8 +38,10 @@ public class BankingServiceImpl implements BankingService {
 
         try {
             Customer savedCustomer = customerRepository.save(customer);
+            logger.info("Saving customer details { "+customer+" }");
             return mapToCustomerResponseDTO(savedCustomer);
         } catch (org.springframework.dao.DataIntegrityViolationException e) {
+            logger.debug("Aadhaar number you entered already exists enter new aadhaar number");
             throw new InvalidInputException("Aadhaar number " + customerDTO.getAadharNumber() + " already exists");
         }
     }
@@ -53,7 +55,9 @@ public class BankingServiceImpl implements BankingService {
         account.setCustomer(customer);
         account.setBalance(accountDTO.getInitialBalance() != null ? accountDTO.getInitialBalance() : BigDecimal.ZERO);
 
+
         Account savedAccount = accountRepository.save(account);
+        logger.info("Creating an account for customer with id "+customer.getId()+" Account details are :"+savedAccount);
         return mapToAccountResponseDTO(savedAccount);
     }
 
@@ -63,6 +67,7 @@ public class BankingServiceImpl implements BankingService {
         if (account == null) {
             throw new AccountNotFoundException("Account not found with UUID: " + accountUuid);
         }
+        logger.info("Request for details of account with id "+accountUuid+" Customer is "+account.getCustomer());
         return mapToAccountResponseDTO(account);
     }
 
@@ -115,6 +120,7 @@ public class BankingServiceImpl implements BankingService {
         if (account == null) {
             throw new AccountNotFoundException("Account not found with UUID: " + accountUuid);
         }
+        logger.info("Request to Inactivation of account :"+accountUuid);
         account.setStatus(Account.AccountStatus.INACTIVE);
         accountRepository.save(account);
     }
@@ -125,6 +131,7 @@ public class BankingServiceImpl implements BankingService {
         if (account == null) {
             throw new AccountNotFoundException("Account not found with UUID: " + accountUuid);
         }
+        logger.info("Request to activation of account :"+accountUuid);
         account.setStatus(Account.AccountStatus.ACTIVE);
         accountRepository.save(account);
     }
@@ -135,6 +142,7 @@ public class BankingServiceImpl implements BankingService {
         if(account == null){
             throw new AccountNotFoundException("Account not found with UUID: "+accounUuid);
         }
+        logger.info("Request to check balance for account :"+accounUuid+" this account belongs to "+account.getCustomer());
         BigDecimal amount=account.getBalance();
         return mapToBalanceResponseDTO(amount);
     }
